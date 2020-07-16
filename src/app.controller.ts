@@ -1,4 +1,13 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+  Body,
+  ParseArrayPipe,
+  Query,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -11,5 +20,13 @@ export class AppController {
     @Param('num2', ParseIntPipe) num2: number,
   ): number {
     return this.appService.addNumbers(num1, num2);
+  }
+
+  @Post('/api/v1/average')
+  findAverage(
+    @Body(new ParseArrayPipe({ items: Number, separator: ',' }))
+    numbersList: number[],
+  ): number {
+    return this.appService.findAverage(numbersList);
   }
 }
