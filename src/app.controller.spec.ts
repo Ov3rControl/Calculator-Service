@@ -19,4 +19,10 @@ describe('AppController', () => {
       expect(appController.addNumbers(1, 2)).toBe(3);
     });
   });
+
+  describe('Find Average', () => {
+    it('should return the average number', () => {
+      expect(appController.findAverage([1, 2, 3, 4, 5])).toBe(3);
+    });
+  });
 });
