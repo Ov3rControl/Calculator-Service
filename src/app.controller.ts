@@ -14,7 +14,7 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/api/v1/:num1/:num2')
+  @Get('/api/v1/add/:num1/:num2')
   addNumbers(
     @Param('num1', ParseIntPipe) num1: number,
     @Param('num2', ParseIntPipe) num2: number,
